@@ -1,0 +1,26 @@
+<mat-card  class="example-card">
+  <mat-card-title style="margin-bottom: 5%; margin-top: 2%"><b>LOGIN</b></mat-card-title>
+  <mat-card-content>
+    <form class="example-form" [formGroup]="loginForm">
+      <mat-form-field class="example-full-width" appearance="outline">
+        <mat-icon matSuffix>email</mat-icon>
+        <input matInput placeholder="Email" required
+         formControlName="emailId" [(ngModel)]="employee_email">
+        <mat-error *ngIf="emailId?.invalid">
+         {{ invalidEmailError() }}
+        </mat-error>      
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width" appearance="outline">
+        <mat-icon matSuffix>vpn_key</mat-icon> <input  type="password" matInput placeholder="Password"
+            formControlName="password" [(ngModel)]="employee_password" required>
+         <mat-error *ngIf="loginForm.password?.required">
+          Please enter your password
+         </mat-error>
+      </mat-form-field>
+    </form>
+      <button mat-raised-button color="primary" style="width: 100%; margin-bottom: 2%" (click)="login()">LOGIN</button>
+      <!-- <button mat-raised-button style="width: 100%; background-color: azure">CANCEL</button> -->
+
+  </mat-card-content>
+</mat-card>

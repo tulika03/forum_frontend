@@ -1,3 +1,5 @@
+import { AppService } from './app.service';
+import { MainService } from './nav/main/main.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,4 +9,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'forums-app';
+  visible : boolean
+  constructor( public nav : AppService) {}
 }

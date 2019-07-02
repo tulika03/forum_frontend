@@ -1,0 +1,44 @@
+.companyName{
+  font-size: 150%;
+}
+
+.mat-toolbar{
+height: 10vh;
+}
+
+div {
+  overflow: inherit;
+}
+
+.mat-sidenav-container{
+  height: 93vh !important;
+}
+
+mat-sidenav {
+ min-width: 15%;
+}
+a{
+  text-decoration: none;
+  font-size: 110%;
+  white-space: normal;
+  text-align: right;
+}
+
+button{
+  font-size: 110%;
+  min-width: min-content;
+}
+
+.example-icon {
+  padding: 0 14px;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.mat-sidenav-content{
+    font-size: 200%;
+    text-align: center;
+    display: block;
+}

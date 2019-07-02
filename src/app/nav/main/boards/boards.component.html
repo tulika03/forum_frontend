@@ -1,0 +1,42 @@
+<mat-toolbar role="heading">
+  <mat-toolbar-row>
+    <span fxLayoutAlign="start center">Boards List</span>
+    <span class="example-spacer"></span>
+    <button mat-fab style="background-color: blue; color: white" class="add-event-button secondary_class mt-3" (click)="addBoard()">
+      <mat-icon class="example-icon" aria-hidden="false" aria-label="Example delete icon">
+        add
+      </mat-icon>
+    </button>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-card >
+  <mat-card-content>
+    <div class="mat-elevation-z8">
+      <table mat-table [dataSource]="dataSource" matSort>
+        <ng-container matColumnDef="Board Title">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Board Title</th>
+          <td mat-cell *matCellDef="let row"> {{row.board_title}} </td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="Description">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Description </th>
+          <td mat-cell *matCellDef="let row"> {{row.description}} </td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="created">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> created </th>
+          <td mat-cell *matCellDef="let row"> {{row.createdOn}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+        </tr>
+      </table>
+
+      <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+    </div>
+  </mat-card-content>
+</mat-card>
