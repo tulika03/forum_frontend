@@ -1,7 +1,37 @@
 <mat-toolbar role="heading">
     <mat-toolbar-row>
-      <span fxLayoutAlign="start center">Add New Board</span>
-      <span class="example-spacer"></span>
+        <span fxLayoutAlign="start center">Add New Board</span>
+        <span class="example-spacer"></span>
     </mat-toolbar-row>
-  </mat-toolbar>
-  
+</mat-toolbar>
+
+<mat-card style="margin: 5%">
+    <mat-card-content>
+        <form [formGroup]="createForm">
+
+            <div fxLayout="row" fxLayoutAlign="start center" fxFlex="1 0 auto" class="example-container">
+                <mat-form-field fxFlex="100">
+                    <input matInput formControlName="title" [(ngModel)]="boardTitle" placeholder="Board Title" required>
+                    <mat-error>
+                        Report Name is required
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="start center" fxFlex="1 0 auto" class="example-container">
+                <mat-form-field>
+                    <textarea matInput placeholder="Description" formControlName="description" [(ngModel)]="description"></textarea>
+                </mat-form-field>
+            </div>
+        </form>
+    </mat-card-content>
+    <mat-card-actions class="example-button-row">
+        <button mat-raised-button color="primary" class="third_classs" (click)="addBoardData()">
+            <mat-icon>add</mat-icon>
+            <span> Add</span>
+        </button>
+
+        <button mat-raised-button color=""  class="third_classs">
+            <mat-icon>clear</mat-icon> <span> Cancel</span>
+        </button>
+    </mat-card-actions>
+</mat-card>

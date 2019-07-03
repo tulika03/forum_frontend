@@ -9,7 +9,6 @@ import *  as jwt_decode from 'jwt-decode'
 export class LoginService {
     url = NavModule.APIEndPoint
     constructor(private http: HttpClient, private snackBar: MatSnackBar) {
-
     }
 
     login(data) {

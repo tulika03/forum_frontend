@@ -1,8 +1,12 @@
+import { BoardService } from './boards/boards.service';
+import { ReactiveFormsModule } from '@angular/forms';
 import { MainService } from './main.service';
+import { HttpClientModule } from '@angular/common/http';
 
 import {
     MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule,
-    MatListModule, MatMenuModule, MatCardModule, MatTabsModule, MatTableModule, MatPaginatorModule
+    MatListModule, MatMenuModule, MatCardModule, MatTabsModule, MatTableModule, 
+    MatPaginatorModule, MatFormFieldModule, MatInputModule, MatSnackBarModule
 } from '@angular/material';
 import { Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
@@ -42,10 +46,15 @@ const routes: Routes = [
         MatTabsModule,
         MatTableModule, 
         MatPaginatorModule,
-        MatSidenavModule
+        MatSidenavModule,
+        MatFormFieldModule,
+        MatInputModule,
+        ReactiveFormsModule,
+        MatSnackBarModule,
+        HttpClientModule
     ],
     providers: [
-        MainService
+        MainService, BoardService
     ],
     entryComponents: []
 })
