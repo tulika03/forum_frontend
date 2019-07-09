@@ -1,0 +1,60 @@
+<mat-toolbar role="heading">
+    <mat-toolbar-row>
+        <span fxLayoutAlign="start center">Discussion Forum</span>
+        <span class="example-spacer"></span>
+    </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-card style="margin: 5%">
+    <div class="addCommentBox">
+        <form [formGroup]="commentGroup">
+            <div fxLayout="row" fxLayoutAlign="start center" fxFlex="1 0 auto" class="example-container">
+                <mat-form-field appearance="outline" fxFlex="100" style="margin: 2%;">
+                    <mat-label>Post comment ....</mat-label>
+                    <textarea matInput [(ngModel)]="commentVal" formControlName="comment"></textarea>
+                    <mat-icon matSuffix>edit</mat-icon>
+                </mat-form-field>
+            </div>
+        </form>
+
+        <div style="float: right; margin-top: -3%; margin-right: 2%; margin-bottom: 8px;">
+            <button mat-raised-button color="primary" (click)="postComment()">
+                <mat-icon>add_comment</mat-icon>
+                <span> Post Comment</span>
+            </button>
+        </div>
+    </div>
+    <mat-card-content>
+        <div *ngFor="let comment of commentsData">
+            <div class="commentBox">
+                <p> <b> Comment By: </b> {{ comment.commentBy }}</p>
+                <p> <b> Comment On: </b>{{ comment.commentOn }}</p>
+                <p style="margin-bottom: 2.5%; margin-right: 2px;"> <b> Message : </b> {{comment.commentDesc }}</p>
+                <div class="replyBox" *ngIf="checkReplyLength(comment.Reply)">
+                    <p> <b> Reply By: </b> {{ comment.Reply.replyBy }}</p>
+                    <p> <b> Reply On: </b> {{ comment.Reply.replyOn }}</p>
+                    <p> <b> Message: </b> {{ comment.Reply.replyDesc }}</p>
+                </div>
+                <div id="bottomButton">
+                    <button mat-stroked-button color="primary" (click)="addCommentBox()"
+                        *ngIf="!checkReplyLength(comment.Reply)">
+                        <mat-icon>reply</mat-icon>
+                        <span> Reply</span>
+                    </button>
+                </div>
+
+            </div>
+
+        </div>
+    </mat-card-content>
+    <!-- <mat-card-actions class="example-button-row">
+        <button mat-raised-button color="primary" class="third_classs" (click)="addBoardData()">
+            <mat-icon>add</mat-icon>
+            <span> Add</span>
+        </button>
+
+        <button mat-raised-button color="" class="third_classs">
+            <mat-icon>clear</mat-icon> <span> Cancel</span>
+        </button>
+    </mat-card-actions> -->
+</mat-card>

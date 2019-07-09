@@ -13,6 +13,8 @@ import { NgModule } from '@angular/core';
 import { BoardsComponent } from './boards/boards.component';
 import { CreateBoardComponent } from './boards/create-board/create-board.component';
 import { MainComponent } from './main.component';
+import { ThreadsComponent } from './boards/threads/threads.component';
+import {CommonModule} from '@angular/common';
 const routes: Routes = [
     {
         'path': 'view-boards',
@@ -21,6 +23,10 @@ const routes: Routes = [
     {
         'path': 'create-board', 
         'component': CreateBoardComponent
+    },
+    {
+        'path': 'thread', 
+        'component': ThreadsComponent
     }
 ];
 
@@ -29,7 +35,8 @@ const routes: Routes = [
     declarations: [
         BoardsComponent,
         CreateBoardComponent,
-        MainComponent
+        MainComponent,
+        ThreadsComponent
     ],
     exports: [
         MainComponent
@@ -51,7 +58,8 @@ const routes: Routes = [
         MatInputModule,
         ReactiveFormsModule,
         MatSnackBarModule,
-        HttpClientModule
+        HttpClientModule,
+        CommonModule
     ],
     providers: [
         MainService, BoardService

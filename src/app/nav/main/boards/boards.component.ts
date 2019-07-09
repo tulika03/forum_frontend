@@ -42,7 +42,8 @@ export class BoardsComponent implements OnInit, AfterViewInit {
           board_title: this.boardData[i].board_name,
           description:  this.boardData[i].board_description,
           createdOn: date.getDate() + '/' +  date.getMonth() + '/' + date.getFullYear(),
-          createdBy: this.boardData[i].board_created_by.employee_firstName
+          createdBy: this.boardData[i].board_created_by.employee_firstName,
+          createdById: this.boardData[i].board_created_by._id
         })
       }
       this.dataSource = new MatTableDataSource(boardDetails)
@@ -53,6 +54,10 @@ export class BoardsComponent implements OnInit, AfterViewInit {
 
   addBoard() {
     this.router.navigate(['/forum/create-board'])
+  }
+
+  addComment(threadId, userId) {
+    this.router.navigate(['forum/thread', {_id: threadId, userId: userId }])
   }
 
 }
